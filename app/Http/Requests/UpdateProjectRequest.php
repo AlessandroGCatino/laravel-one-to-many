@@ -22,10 +22,11 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => "required",
+            "title" => ["required", "unique:projects"],
             "description" => "required",
             "languages" => "required",
-            "cover" => ["nullable", "image"]
+            "cover" => ["nullable", "image"],
+            "type_id" => ["nullable", "exists:types,id"]
         ];
     }
 }
