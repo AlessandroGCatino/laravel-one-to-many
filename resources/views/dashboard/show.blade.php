@@ -10,6 +10,14 @@
     </h1>
     
     <h5>
+        Tipologia:
+    </h5>
+    <p>
+        {{$project->type ? $project->type->name : "Nessuna tipologia attribuita"}}
+    </p>
+
+    
+    <h5>
         Descrizione:
     </h5>
     <p>
