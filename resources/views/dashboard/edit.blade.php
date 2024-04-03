@@ -64,6 +64,24 @@
                 id="cover"  
             />
         </div>
+
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Tipologia</label>
+            <select
+                class="form-select form-select-lg"
+                name="type_id"
+                id="type_id"
+            >
+                <option selected disabled value="">Select one</option>
+                @foreach ($types as $item )
+                    <option
+                        value="{{$item->id}}"
+                        {{$item->id == old("type_id", $project->type ?$project->type->id : "") ? "selected" : ""}}
+                        >{{$item->name}}</option>
+                @endforeach
+                
+            </select>
+        </div>
         
     
         <button

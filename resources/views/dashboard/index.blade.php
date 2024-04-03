@@ -14,6 +14,7 @@
                         <th scope="col">Descrizione</th>
                         <th scope="col">Linguaggi</th>
                         <th scope="col">Copertina</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Azioni</th>
                     </tr>
                 </thead>
@@ -24,6 +25,7 @@
                             <td>{{$item->description}}</td>
                             <td>{{$item->languages}}</td>
                             <td>{{$item->cover}}</td>
+                            <td>{{$item->type->name}}</td>
                             <td class="text-center">
                                 <a href="{{route("projects.edit", $item)}}" class="btn btn-warning mb-1">Edit</a>
                                 <form action="{{route("projects.destroy", $item)}}" method="post">

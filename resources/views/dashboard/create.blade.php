@@ -5,6 +5,16 @@
 <div class="container mt-3 ">
     <h1 class="mb-3">Crea nuovo Progetto</h1>
 
+    @if ($errors->any())
+        <div class="alert alert-danger ">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form action="{{route("projects.store")}}" method="POST" enctype="multipart/form-data">
 
         @csrf
@@ -44,6 +54,24 @@
                 />
             </div>
             
+        </div>
+        
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Tipologia</label>
+            <select
+                class="form-select form-select-lg"
+                name="type_id"
+                id="type_id"
+            >
+                <option selected disabled value="">Select one</option>
+                @foreach ($types as $item )
+                    <option
+                        value="{{$item->id}}"
+                        {{$item->id == old("type_id") ? "selected" : ""}}
+                        >{{$item->name}}</option>
+                @endforeach
+                
+            </select>
         </div>
         
     
