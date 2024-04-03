@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -24,7 +25,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("dashboard.create");
+        $types = Type::all();
+
+        return view("dashboard.create", compact("types"));
     }
 
     /**
@@ -60,7 +63,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("dashboard.edit", compact("project"));
+        $types = Type::all();
+
+        return view("dashboard.edit", compact("project", "types"));
     }
 
     /**
