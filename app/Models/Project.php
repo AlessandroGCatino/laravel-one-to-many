@@ -14,7 +14,8 @@ class Project extends Model
         "title",
         "description",
         "languages",
-        "cover"
+        "cover",
+        "type_id"
     ];
 
 
